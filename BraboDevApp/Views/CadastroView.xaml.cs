@@ -1,15 +1,18 @@
 ﻿
 namespace BraboDevApp.Views
 {
+    [QueryProperty(nameof(Route), "route")]
     public partial class CadastroView : ContentPage
     {
+        public string Route { get; set; }
+
         public const double FontSizeBraboDev = 14;
         public CadastroView()
         {
             InitializeComponent();
         }
 
-        private void Cadastrar_Clicked(object sender, EventArgs e)
+        private async void Cadastrar_Clicked(object sender, EventArgs e)
         {
             var nome = NomeCompleto.Text;
             var data = DataNascimento.Date;
@@ -17,6 +20,8 @@ namespace BraboDevApp.Views
             var idade = Idade.Text;
 
             DisplayAlert("Cadastro de Usuário", string.Format("Cadastro do usuário {0} foi realizado com sucesso", nome), "Ok!");
+
+            await Shell.Current.GoToAsync(Route);
         }
 
         private void DataNascimento_DateSelected(object sender, DateChangedEventArgs e)

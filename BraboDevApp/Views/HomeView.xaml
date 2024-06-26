@@ -4,6 +4,29 @@
              x:Class="BraboDevApp.Views.HomeView"
              Shell.NavBarIsVisible="False"
              Title="HomeView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ColorLabel">White</Color>
+            <x:Double x:Key="FontSizeBraboDev">18</x:Double>
+            <!--<OnPlatform x:Key="ColorLabelPlataform" x:TypeArguments="Label">
+                <On Platform="iOs" Value="Black"/>
+                <On Platform="Android" Value="White"/>
+            </OnPlatform>-->
+            <Style TargetType="Label" x:Key="LabelStyleBraboDev">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="WidthRequest" Value="300"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelStyleBoldBraboDev" BasedOn="{StaticResource LabelStyleBraboDev}">
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+                
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0,1">
@@ -22,30 +45,35 @@
             <Image Source="efeito_pixel_topo.png"
                    HeightRequest="80"
                    HorizontalOptions="End"/>
-            <Label 
-                FontSize="18"
-                Margin="0,-20,0,0"
+
+            <Label Margin="0,-20,0,0" Style="{StaticResource LabelStyleBoldBraboDev}" Text="Faça parte da nova geração de Brab#s Devs do Brasil."/>
+            
+            <!--<Label 
+                FontSize="{StaticResource FontSizeBraboDev}"
+               
                 FontAttributes="Bold"
                 WidthRequest="300"
-                TextColor="White"
+                TextColor="{StaticResource ColorLabel}"
                 HorizontalTextAlignment="Center"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center"
-                Text="Faça parte da nova geração de Brab#s Devs do Brasil."/>
+                Text="Faça parte da nova geração de Brab#s Devs do Brasil."/>-->
             
             <Image Source="astronaura.png" Margin="0,20,0,0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="150" />
 
-            <Label 
-                FontSize="18"
+            <Label Margin="0,10,0,0" Style="{StaticResource LabelStyleBraboDev}" Text="Aprenda a criar aplicativos de forma rápida e caceteira."/>
+            
+            <!--<Label 
+                FontSize="{StaticResource FontSizeBraboDev}"
                 Margin="0,10,0,0"
                 WidthRequest="300"
-                TextColor="White"
+                TextColor="{StaticResource ColorLabel}"
                 HorizontalTextAlignment="Center"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 VerticalTextAlignment="Center"
-                Text="Aprenda a criar aplicativos de forma rápida e caceteira."/>
+                Text="Aprenda a criar aplicativos de forma rápida e caceteira."/>-->
         </VerticalStackLayout>
 
         <Button Grid.Row="1"
@@ -64,7 +92,10 @@
                 BorderWidth="1"
                 CornerRadius="5"
                 WidthRequest="200"
-                Text="REGISTRAR"/>
+                Text="REGISTRAR"
+                x:Name="Registrar"
+                Clicked="Registrar_Clicked"
+                />
 
             <Button
                 BackgroundColor="Transparent"
