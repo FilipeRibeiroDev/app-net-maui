@@ -14,7 +14,7 @@ namespace BraboDevApp
 
         public GlobalSettings()
         {
-            UserEndpoint = $"{DefaultEndpoint}/users";
+            UserEndpoint = $"{DefaultEndpoint}/user";
         }
     }
 }

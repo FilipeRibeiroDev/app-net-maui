@@ -14,6 +14,7 @@ namespace BraboDevApp
         {
             Routing.RegisterRoute("cadastro", typeof(CadastroView));
             Routing.RegisterRoute("home", typeof(HomeView));
+            Routing.RegisterRoute("login", typeof(LoginView));
         }
     }
 }

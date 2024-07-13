@@ -12,4 +12,11 @@
         ContentTemplate="{DataTemplate views:HomeView}"
         Route="MainPage" />
 
+    <TabBar Route="Main">
+        <ShellContent
+             Title="Inicio"
+             ContentTemplate="{DataTemplate views:MainView}"
+             Route="Main" />
+    </TabBar>
+    
 </Shell>

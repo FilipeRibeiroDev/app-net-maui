@@ -11,4 +11,10 @@ public partial class HomeView : ContentPage
     {
 		await Shell.Current.GoToAsync("cadastro?route=home");
     }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("login");
+    }
+
 }

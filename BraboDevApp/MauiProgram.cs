@@ -1,4 +1,5 @@
 ﻿using BraboDevApp.Services.RequestProvider;
+using BraboDevApp.Services.Settings;
 using BraboDevApp.Services.Users;
 using BraboDevApp.Views;
 using Microsoft.Extensions.Logging;
@@ -30,6 +31,7 @@ namespace BraboDevApp
         public static MauiAppBuilder RegisterAppService(this MauiAppBuilder app)
         {
             app.Services.AddSingleton<IRequestProvider, RequestProvider>();
+            app.Services.AddSingleton<ISettingsService, SettingsService>();
             app.Services.AddSingleton<IUserService, UserService>();
             return app;
         }
@@ -37,6 +39,7 @@ namespace BraboDevApp
         public static MauiAppBuilder RegisterViews(this MauiAppBuilder app)
         {
             app.Services.AddTransient<CadastroView>();
+            app.Services.AddTransient<LoginView>();
             return app;
         }
     }

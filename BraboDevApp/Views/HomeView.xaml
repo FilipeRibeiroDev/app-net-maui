@@ -103,6 +103,7 @@
                 BorderWidth="1"
                 CornerRadius="5"
                 WidthRequest="90"
+                Clicked="Button_Clicked"
                 Text="LOGAR"/>
         </HorizontalStackLayout>
 

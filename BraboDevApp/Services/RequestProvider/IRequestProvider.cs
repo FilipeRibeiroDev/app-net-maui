@@ -2,6 +2,6 @@
 {
     public interface IRequestProvider
     {
-        Task<TSend> PostAsync<TSend>(string uri, TSend data, string token = "");
+        Task<TResult> PostAsync<TResult, TSend>(string uri, TSend data, string token = "");
     }
 }

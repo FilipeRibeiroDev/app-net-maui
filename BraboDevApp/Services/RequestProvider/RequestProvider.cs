@@ -14,7 +14,7 @@ namespace BraboDevApp.Services.RequestProvider
                 return httpClient;
             });
 
-        public async Task<TSend> PostAsync<TSend>(string uri, TSend data, string token = "")
+        public async Task<TResult> PostAsync<TResult, TSend>(string uri, TSend data, string token = "")
         {
             var httpClient = GetOrCreateHttpClient(token);
 
@@ -24,9 +24,9 @@ namespace BraboDevApp.Services.RequestProvider
             var response = await httpClient.PostAsync(uri, body).ConfigureAwait(false);
 
             if (!response.IsSuccessStatusCode)
-                throw new Exception("Falha na requisição");
+                return default;
 
-            var result = await response.Content.ReadFromJsonAsync<TSend>();
+            var result = await response.Content.ReadFromJsonAsync<TResult>();
             return result;
         }
 
