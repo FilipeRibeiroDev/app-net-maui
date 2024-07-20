@@ -1,11 +1,29 @@
+using BraboDevApp.Services.Settings;
+
 namespace BraboDevApp.Views;
 
+[QueryProperty(nameof(Logout), "Logout")]
 public partial class HomeView : ContentPage
 {
-	public HomeView()
+    public bool Logout { get; set; }
+
+    private readonly ISettingsService _settingsService;
+    public HomeView(ISettingsService settingsService)
 	{
-		InitializeComponent();
+        _settingsService = settingsService;
+
+        InitializeComponent();
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        if (Logout)
+        {
+            _settingsService.AuthAccessToken = string.Empty;
+        }
+    }
 
     private async void Registrar_Clicked(object sender, EventArgs e)
     {

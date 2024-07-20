@@ -1,4 +1,5 @@
-﻿using BraboDevApp.Services.RequestProvider;
+﻿using BraboDevApp.Services.Navigation;
+using BraboDevApp.Services.RequestProvider;
 using BraboDevApp.Services.Settings;
 using BraboDevApp.Services.Users;
 using BraboDevApp.Views;
@@ -31,6 +32,7 @@ namespace BraboDevApp
         public static MauiAppBuilder RegisterAppService(this MauiAppBuilder app)
         {
             app.Services.AddSingleton<IRequestProvider, RequestProvider>();
+            app.Services.AddSingleton<INavigationService, NavigationService>();
             app.Services.AddSingleton<ISettingsService, SettingsService>();
             app.Services.AddSingleton<IUserService, UserService>();
             return app;
@@ -40,6 +42,8 @@ namespace BraboDevApp
         {
             app.Services.AddTransient<CadastroView>();
             app.Services.AddTransient<LoginView>();
+            app.Services.AddTransient<MainView>();
+            app.Services.AddTransient<HomeView>();
             return app;
         }
     }

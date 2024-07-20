@@ -1,4 +1,5 @@
 using BraboDevApp.Models.Users;
+using BraboDevApp.Services.Navigation;
 using BraboDevApp.Services.Settings;
 using BraboDevApp.Services.Users;
 
@@ -8,8 +9,10 @@ public partial class LoginView : ContentPage
 {
 	private readonly IUserService _userService;
 	private readonly ISettingsService _settingsService;
-	public LoginView(ISettingsService settingsService, IUserService userService)
+	private readonly INavigationService _navigationService;
+	public LoginView(ISettingsService settingsService, IUserService userService, INavigationService navigationService)
 	{
+        _navigationService = navigationService;
         _userService = userService;
         _settingsService = settingsService;
         InitializeComponent();
@@ -34,7 +37,7 @@ public partial class LoginView : ContentPage
 
             DisplayAlert("Login de Usuário", string.Format("Usuário {0} logado com sucesso", response.FirstName), "Ok!");
 
-            await Shell.Current.GoToAsync("//Main/Main");
+            await _navigationService.NavigationAsync("//Main/Main");
         }
     }
 }

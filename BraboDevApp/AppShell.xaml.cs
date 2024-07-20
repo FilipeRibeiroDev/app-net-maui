@@ -1,13 +1,26 @@
-﻿using BraboDevApp.Views;
+﻿using BraboDevApp.Services.Navigation;
+using BraboDevApp.Views;
 
 namespace BraboDevApp
 {
     public partial class AppShell : Shell
     {
-        public AppShell()
+        private readonly INavigationService _navigationService;
+        public AppShell(INavigationService navigationService)
         {
+            _navigationService = navigationService;
             InitializeRouting();
             InitializeComponent();
+        }
+
+        protected override async void OnHandlerChanged()
+        {
+            base.OnHandlerChanged();
+
+            if(Handler is not null)
+            {
+                await _navigationService.InitializeAsync();
+            }
         }
 
         public static void InitializeRouting()
