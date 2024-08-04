@@ -2,7 +2,7 @@
 
 namespace BraboDevApp.Models.Users
 {
-    public class User
+    public class User : BaseSQLiteModel
     {
         [JsonPropertyName("firstName")]
         public string FirstName { get; set; }
@@ -17,7 +17,7 @@ namespace BraboDevApp.Models.Users
         public string Gender { get; set; }
 
         [JsonPropertyName("age")]
-        public object Age { get; set; }
+        public string Age { get; set; }
 
         [JsonPropertyName("username")]
         public string Username { get; set; }
