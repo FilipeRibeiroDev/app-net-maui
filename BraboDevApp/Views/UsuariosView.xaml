@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BraboDevApp.Views"
+             xmlns:model="clr-namespace:BraboDevApp.Models.Users"
+             x:Class="BraboDevApp.Views.UsuariosView"
+             x:DataType="local:UsuariosView"
+             Title="UsuariosView">
+    <ScrollView>
+        <ListView ItemsSource="{Binding Users}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:User">
+                    <TextCell TextColor="Black" Text="{Binding FirstName}" Detail="{Binding LastName}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentPage>

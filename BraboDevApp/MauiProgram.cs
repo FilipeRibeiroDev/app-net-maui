@@ -44,6 +44,7 @@ namespace BraboDevApp
             app.Services.AddTransient<LoginView>();
             app.Services.AddTransient<MainView>();
             app.Services.AddTransient<HomeView>();
+            app.Services.AddTransient<UsuariosView>();
             return app;
         }
     }

@@ -14,6 +14,19 @@ namespace BraboDevApp.Services.RequestProvider
                 return httpClient;
             });
 
+        public async Task<TResult> GetAsync<TResult>(string uri, string token = "")
+        {
+            var httpClient = GetOrCreateHttpClient(token);
+
+            var response = await httpClient.GetAsync(uri).ConfigureAwait(false);
+
+            if (!response.IsSuccessStatusCode)
+                return default;
+
+            var result = await response.Content.ReadFromJsonAsync<TResult>();
+            return result;
+        }
+
         public async Task<TResult> PostAsync<TResult, TSend>(string uri, TSend data, string token = "")
         {
             var httpClient = GetOrCreateHttpClient(token);

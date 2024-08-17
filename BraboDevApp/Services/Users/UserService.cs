@@ -28,5 +28,11 @@ namespace BraboDevApp.Services.Users
             var uri = GlobalSettings.Instance.UserEndpoint + "/login";
             return await _requestProvider.PostAsync<UserToken, UserAuth>(uri, auth);
         }
+
+        public async Task<UserResponse> List()
+        {
+            var uri = GlobalSettings.Instance.UserEndpoint;
+            return await _requestProvider.GetAsync<UserResponse>(uri);
+        }
     }
 }

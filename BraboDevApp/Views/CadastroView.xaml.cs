@@ -32,7 +32,7 @@ namespace BraboDevApp.Views
 
             user.BirthDate = DataNascimento.Date.ToShortDateString();
             user.Gender = Genero.SelectedItem.ToString();
-            user.Age = Idade.Text;
+            user.Age = Convert.ToInt32(Idade.Text);
 
             var userResult = await _userService.Add(user);
 

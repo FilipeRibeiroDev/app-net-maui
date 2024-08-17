@@ -17,6 +17,11 @@
              Title="Inicio"
              ContentTemplate="{DataTemplate views:MainView}"
              Route="Main" />
+
+        <ShellContent
+           Title="Usuários"
+           ContentTemplate="{DataTemplate views:UsuariosView}"
+           Route="Usuarios" />
     </TabBar>
     
 </Shell>

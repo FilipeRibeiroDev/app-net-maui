@@ -17,7 +17,7 @@ namespace BraboDevApp.Models.Users
         public string Gender { get; set; }
 
         [JsonPropertyName("age")]
-        public string Age { get; set; }
+        public int Age { get; set; }
 
         [JsonPropertyName("username")]
         public string Username { get; set; }
